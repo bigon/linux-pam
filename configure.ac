@@ -556,11 +556,11 @@ JH_CHECK_XML_CATALOG([http://docbook.sourceforge.net/release/xsl/current/manpage
 
 AC_PATH_PROG([BROWSER], [w3m])
 if test ! -z "$BROWSER"; then
-     BROWSER="$BROWSER -T text/html -dump"
+     BROWSER="LC_ALL=C $BROWSER -T text/html -dump"
 else
      AC_PATH_PROG([BROWSER], [links])
      if test ! -z "$BROWSER"; then
-          BROWSER="$BROWSER -no-numbering -no-references -dump"
+          BROWSER="LC_ALL=C $BROWSER -no-numbering -no-references -dump"
      else
           enable_docu=no
      fi
